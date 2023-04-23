@@ -19,6 +19,10 @@ public class TrataInsersao {
         }
         return url;
     }
+    public String RetornaFigura() {
+        String url = "BaseJogo_512x512.png";
+        return url;
+    }
     public Boolean TrocaX(Boolean x){
         x = !x;
         return x;

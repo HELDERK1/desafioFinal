@@ -67,6 +67,8 @@ public class FXMLDocumentController implements Initializable {
             if (objRegra.ValidaGame()) {
                 AdicionaBarraWin();
                 System.out.println("Win");
+            } else {
+                ValidaVelha();
             }
         }
     }
@@ -81,6 +83,8 @@ public class FXMLDocumentController implements Initializable {
             if (objRegra.ValidaGame()) {
                 AdicionaBarraWin();
                 System.out.println("Win");
+            } else {
+                ValidaVelha();
             }
         }
     }
@@ -95,6 +99,8 @@ public class FXMLDocumentController implements Initializable {
             if (objRegra.ValidaGame()) {
                 AdicionaBarraWin();
                 System.out.println("Win");
+            } else {
+                ValidaVelha();
             }
         }
     }
@@ -109,6 +115,8 @@ public class FXMLDocumentController implements Initializable {
             if (objRegra.ValidaGame()) {
                 AdicionaBarraWin();
                 System.out.println("Win");
+            } else {
+                ValidaVelha();
             }
         }
     }
@@ -123,6 +131,8 @@ public class FXMLDocumentController implements Initializable {
             if (objRegra.ValidaGame()) {
                 AdicionaBarraWin();
                 System.out.println("Win");
+            } else {
+                ValidaVelha();
             }
         }
     }
@@ -137,6 +147,8 @@ public class FXMLDocumentController implements Initializable {
             if (objRegra.ValidaGame()) {
                 AdicionaBarraWin();
                 System.out.println("Win");
+            } else {
+                ValidaVelha();
             }
         }
     }
@@ -151,6 +163,8 @@ public class FXMLDocumentController implements Initializable {
             if (objRegra.ValidaGame()) {
                 AdicionaBarraWin();
                 System.out.println("Win");
+            } else {
+                ValidaVelha();
             }
         }
     }
@@ -165,6 +179,8 @@ public class FXMLDocumentController implements Initializable {
             if (objRegra.ValidaGame()) {
                 AdicionaBarraWin();
                 System.out.println("Win");
+            } else {
+                ValidaVelha();
             }
         }
     }
@@ -241,6 +257,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
         }
+        url = objInsere.RetornaFigura();
+        Image imageWin = new Image(getClass().getResourceAsStream(url));
+        win.setImage(imageWin);
         lbResult.setText("Empate!");
     }
 }
