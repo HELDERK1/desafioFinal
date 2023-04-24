@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  * @author Helder Kennedy
  */
 public class DesafioFinalVenturus extends Application {
-    
+    private String[] args;
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));

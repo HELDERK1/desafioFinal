@@ -141,12 +141,37 @@
       </Pane>
       <Pane layoutY="715.0" prefHeight="77.0" prefWidth="512.0">
          <children>
-            <ImageView fx:id="win" fitHeight="51.0" fitWidth="56.0" layoutX="45.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lbResult" contentDisplay="CENTER" layoutX="101.0" layoutY="13.0">
+            <ImageView fx:id="win" fitHeight="51.0" fitWidth="56.0" layoutX="136.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lbResult" contentDisplay="CENTER" layoutX="194.0" layoutY="12.0" prefHeight="51.0" prefWidth="230.0">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="36.0" />
                </font>
             </Label>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@xizinho_110x110.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Bolinha_110x110.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lbWinX" layoutX="53.0" layoutY="12.0" text="Win = 0">
+               <font>
+                  <Font name="Comic Sans MS Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbWinO" layoutX="53.0" layoutY="42.0" text="Win = 0">
+               <font>
+                  <Font name="Comic Sans MS Italic" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btReiniciar" layoutX="411.0" layoutY="18.0" mnemonicParsing="false" onAction="#Reiniciar" style="-fx-background-color: transparente;">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

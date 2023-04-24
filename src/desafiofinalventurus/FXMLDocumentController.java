@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  *
@@ -20,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 public class FXMLDocumentController implements Initializable {
 
     boolean x = true;
+    boolean fim = false;
     boolean btEscolha = false;
     String url = "";
     boolean dadosInseridos[][] = new boolean[3][3];
@@ -27,15 +29,17 @@ public class FXMLDocumentController implements Initializable {
     List<String> lstAdd = new ArrayList<>();
     TrataInsersao objInsere = new TrataInsersao();
     RegraGame objRegra = new RegraGame();
+    int winX = 0;
+    int winO = 0;
 
     @FXML
     private ImageView im_1X1, im_1X2, im_1X3, im_2X1, im_2X2, im_2X3, im_3X1, im_3X2, im_3X3, im_win, win;
     @FXML
     AnchorPane TelaGame;
     @FXML
-    Button bt_1X1, bt_1X2, bt_1X3, bt_2X1, bt_2X2, bt_2X3, bt_3X1, bt_3X2, bt_3X3;
+    Button bt_1X1, bt_1X2, bt_1X3, bt_2X1, bt_2X2, bt_2X3, bt_3X1, bt_3X2, bt_3X3, btReiniciar;
     @FXML
-    Label lbEscolha, lbResult;
+    Label lbEscolha, lbResult, lbWinX, lbWinO;
 
     @FXML
     private void BT_EscolhaO(ActionEvent event) {
@@ -202,7 +206,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL urlIn, ResourceBundle rb) {
         AtivaDesativaBotoes(true);
     }
 
@@ -222,6 +226,18 @@ public class FXMLDocumentController implements Initializable {
         Image imageWin = new Image(getClass().getResourceAsStream(url));
         win.setImage(imageWin);
         lbResult.setText("Ganhou!");
+        fim = true;
+        btEscolha = false;
+        url = "";
+        
+        if (!x) {
+            winX++;
+        }else{
+            winO++;
+        }
+        lbWinX.setText("Win = " + winX);
+        lbWinO.setText("Win = " + winO);
+        btReiniciar.setText("Denovo");
     }
 
     private void AcoesBotao(int i, int j) {
@@ -257,9 +273,45 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
         }
+        AtivaDesativaBotoes(true);
         url = objInsere.RetornaFigura();
         Image imageWin = new Image(getClass().getResourceAsStream(url));
         win.setImage(imageWin);
         lbResult.setText("Empate!");
+        fim = true;
+        btEscolha = false;
+        url = "";
+        btReiniciar.setText("Denovo");
+    }
+
+    private void LimpaImmagem() {
+        Image image = new Image(getClass().getResourceAsStream(""));
+        im_1X1.setImage(image);
+        im_1X2.setImage(image);
+        im_1X3.setImage(image);
+        im_2X1.setImage(image);
+        im_2X2.setImage(image);
+        im_2X3.setImage(image);
+        im_3X1.setImage(image);
+        im_3X2.setImage(image);
+        im_3X3.setImage(image);
+        im_win.setImage(image);
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                figurasInseridos[i][j] = "";
+            }
+        }
+        lbEscolha.setText("Escolha X ou O");
+    }
+    
+    @FXML
+    private void Reiniciar(ActionEvent event){
+        
+        if (fim) {
+            LimpaImmagem();
+            fim = false;
+            btEscolha = false;
+        }
+        btReiniciar.setText("");
     }
 }
